@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from mpl_toolkits.mplot3d import axes3d
+from mpl_toolkits.mplot3d import axis3d
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -19,8 +20,11 @@ def main():
     X = np.array([X,]*len(X))
     X = X.transpose()
     Y = np.array([Y,]*len(Y))
+    ax.set_xlabel('x as shooters')
+    ax.set_ylabel('y as goalies')
 
-    Z = np.add(X, Y) - 1.5 * np.multiply(X, Y)
+
+    Z = np.add(0.75*X, Y) - 1.25 * np.multiply(X, Y)
 #    X, Y, Z = axes3d.get_test_data(0.05)
     ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
     plt.show()
